@@ -5,17 +5,6 @@ const postRouter = require("./posts/postRouter");
 
 const server = express();
 
-
-server.get('/', async (req, res) => {
-  try {
-    const messageOfTheDay = process.env.MOTD || 'Hello World!';
-    res.status(200).json({ motd: messageOfTheDay, shoutouts });
-  } catch (error) {
-    console.error('\nERROR', error);
-    res.status(500).json({ error: 'Cannot retrieve MOTD' });
-  }
-});
-
 //custom middleware
 
 function logger(req, res, next) {
